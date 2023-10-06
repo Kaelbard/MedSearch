@@ -27,4 +27,4 @@ npm run dev
 ```
 ### Produção
 
-Link: https://medwaresearch.netlify.app/page/25351330799200872
+Link: https://medwaresearch.netlify.app
