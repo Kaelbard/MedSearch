@@ -8,6 +8,6 @@ import { RouterView } from 'vue-router';
       <RouterView />
     </div>
   </header>
-
+  <footer>
+  </footer>
 </template>
-

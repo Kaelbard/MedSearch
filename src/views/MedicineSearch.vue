@@ -22,7 +22,7 @@
         <ul class="search-results">
           <li v-for="result in searchResults" :key="result.idProduto">
             <div class="result-item">
-              <div>{{ result.nomeProduto }} - {{ result.razaoSocial }}</div>
+              <div class="pointer">{{ result.nomeProduto }} - {{ result.razaoSocial }}</div>
               <router-link :to="'/page/' + result.numProcesso">
                 Detalhes
               </router-link>
@@ -138,6 +138,9 @@ export default {
   margin-bottom: 1rem;
 }
 
+.pointer{
+  cursor: default;
+}
 .results {
   margin-top: 1rem;
   border-radius: 8px;
@@ -282,7 +285,7 @@ ul {
   border: none;
   background-color: transparent;
   color: #565656;
-  cursor: pointer;
+  cursor: default;
   list-style: none;
 }
 
@@ -303,15 +306,15 @@ ul li {
 }
 
 nav {
-  margin-top: 10px; /* Ajuste conforme necessário */
+  margin-top: 10px; 
   display: flex;
   justify-content: center;
-  margin-bottom: 128px; /* Centraliza a paginação horizontalmente */
+  margin-bottom: 128px; 
 }
 
 .pagination {
   display: flex;
-  align-items: center; /* Centraliza os elementos verticalmente na paginação */
+  align-items: center; 
 }
 
 .page-link {
@@ -320,28 +323,28 @@ nav {
   color: #4285f4;
   border-radius: 8px;
   font-size: 1rem;
-  cursor: pointer;
-  padding: 0.5rem 1rem; /* Espaçamento interno ajustável */
-  margin: 0 0.25rem; /* Espaçamento entre os links de página */
+  cursor: default;
+  padding: 0.5rem 1rem; 
+  margin: 0 0.25rem; 
 }
 
 .page-link:hover {
   text-decoration: underline;
 }
 
-/* Estilos para o botão "Anterior" e "Próxima" */
+
 .page-link.prev,
 .page-link.next {
-  font-weight: bold; /* Estilo para destacar os botões Anterior e Próxima */
+  font-weight: bold; 
 }
 
 .page-link.prev:hover,
 .page-link.next:hover {
-  text-decoration: none; /* Remover sublinhado ao passar o mouse */
+  text-decoration: none; 
 }
 
 .page-link.disabled {
-  cursor: not-allowed; /* Cursor de não permitido para links desativados */
-  color: #ccc; /* Cor de texto para links desativados */
+  cursor: not-allowed; 
+  color: #ccc; 
 }
 </style>

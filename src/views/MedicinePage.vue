@@ -28,7 +28,9 @@
           <td>{{ produto.empresa.razaoSocial }}</td>
         </tr>
       </div>
-      <div v-if="loading" class="loading mt-3 align-middle">Carregando...</div>
+      <div v-if="loading" class="loading-indicator">
+      Carregando...
+    </div>
       <nav>
         <div>
       <router-link to="/" class="btn btn-secondary">Voltar para a Busca</router-link>
@@ -77,10 +79,10 @@ export default {
       this.produto.codigoBulaPaciente = detalhesProduto.codigoBulaPaciente || '';
     } catch (error) {
       console.error('Erro ao buscar detalhes do produto:', error)
-    } finally {
-      this.loading = false;
     }
+    this.loading = fals
   },
+  
   methods: {
     baixarBula(codigoBulaPaciente) {
       if (codigoBulaPaciente) {
