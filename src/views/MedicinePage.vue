@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    
     <h1>Detalhes do Produto</h1>
       <div class="table">
         <tr>
@@ -26,17 +27,16 @@
           <th>Nome do Fabricante:</th>
           <td>{{ produto.empresa.razaoSocial }}</td>
         </tr>
-        
       </div>
+      <div v-if="loading" class="loading mt-3 align-middle">Carregando...</div>
       <nav>
         <div>
       <router-link to="/" class="btn btn-secondary">Voltar para a Busca</router-link>
       <button @click="baixarBula(produto.codigoBulaPaciente)" class="btn btn-secondary">Baixar Bula</button>
     </div>
   </nav>
-  </div>
+  </div> 
 </template>
-
 
 <script>
 import axios from 'axios'
@@ -60,7 +60,8 @@ export default {
           razaoSocial: ''
         },
         codigoBulaPaciente: '',
-      }
+      },
+      loading: false
     }
   },
   async created() {
@@ -76,13 +77,15 @@ export default {
       this.produto.codigoBulaPaciente = detalhesProduto.codigoBulaPaciente || '';
     } catch (error) {
       console.error('Erro ao buscar detalhes do produto:', error)
+    } finally {
+      this.loading = false;
     }
   },
   methods: {
     baixarBula(codigoBulaPaciente) {
       if (codigoBulaPaciente) {
         const urlBula = `https://bula.vercel.app/pdf?id=${codigoBulaPaciente}`;
-        window.location.href = urlBula;
+        window.open(urlBula, '_blank');
       } else {
         console.error('Código da bula do paciente não encontrado.')
       }
@@ -143,8 +146,12 @@ h2 {
 }
 
 .table{
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d5d5d5;
+  border-radius: 10px;
+  background-color: #F1F1F1;
   align-content: center;
-  width: 70%;
+  width: 50%;
   margin: auto;
   padding: 1rem;
   align-items: center;

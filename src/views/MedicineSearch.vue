@@ -4,7 +4,9 @@
       <h1>
     <img src="../assets/logo-medware.png" />
   </h1>
+  <h3>Busca de remédios</h3>
     </div>
+    
     <div :class="{ 'input-group': true, expanded: isExpanded }">
       <input
         v-model="searchQuery"
@@ -22,7 +24,7 @@
             <div class="result-item">
               <div>{{ result.nomeProduto }} - {{ result.razaoSocial }}</div>
               <router-link :to="'/page/' + result.numProcesso">
-                <button class="btn btn-tird">Detalhes</button>
+                Detalhes
               </router-link>
             </div>
           </li>
@@ -101,7 +103,7 @@ export default {
           this.totalElements = response.data.totalElements
           this.totalPages = Math.ceil(this.totalElements / 10)
         } else {
-          this.error = 'Os dados da API não estão no formato esperado.'
+          this.error = 'Os dados estão em formato inválido'
         }
       } catch (error) {
         this.error =
@@ -133,7 +135,7 @@ export default {
   align-content: center;
   align-items: center;
   align-self: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .results {
@@ -170,9 +172,13 @@ h1 {
 h2 {
   margin-top: 2rem;
   margin-bottom: 2rem;
-  margin-right: 9rem;
+  margin-right: 2rem;
 }
 
+h3 {
+  text-align: center;
+  font-size:larger;
+}
 .input-group {
   margin-top: 2rem;
   width: 100%;
@@ -297,7 +303,7 @@ ul li {
 }
 
 nav {
-  margin-top: 20px; /* Ajuste conforme necessário */
+  margin-top: 10px; /* Ajuste conforme necessário */
   display: flex;
   justify-content: center;
   margin-bottom: 128px; /* Centraliza a paginação horizontalmente */
