@@ -10,9 +10,9 @@ Confecção de um sistema web de busca de remédios consumindo a API da ANVISA.
 - VITE
 - AXIOS
 
-## Customize configuration
+## Configuração customizada
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+[Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Setup
 
